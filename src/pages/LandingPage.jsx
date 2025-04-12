@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import "../styles/landing.css";
 
 export default function LandingPage() {
   const navigate = useNavigate();
@@ -14,16 +15,10 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-black text-white text-center px-4 transition-all duration-300">
-      {console.log("🎨 Rendering LandingPage JSX")}
-      <h1 className="text-6xl font-serif tracking-widest mb-4">Lusso Movano</h1>
-      <p className="text-2xl font-light italic mb-12">
-        When sophistication meets luxury
-      </p>
-      <button
-        onClick={handleShopNowClick}
-        className="border border-white text-white px-8 py-3 rounded-full hover:bg-white hover:text-black transition-all duration-300 ease-in-out"
-      >
+    <div className="landing-container">
+      <h1 className="landing-title">Lusso Movano</h1>
+      <p className="landing-tagline">Where sophistication meets luxury</p>
+      <button className="landing-button" onClick={handleShopNowClick}>
         Shop Now
       </button>
     </div>

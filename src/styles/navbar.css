@@ -1,0 +1,56 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    font-size: 1rem;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.navbar-left {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-family: 'Didot', serif;
+    color: #000;
+}
+
+.navbar-right {
+    display: flex;
+    gap: 1.8rem;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.navbar-right a {
+    color: #000;
+    text-decoration: none;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbar-right a:hover {
+    opacity: 0.6;
+    transform: scale(1.05);
+}
+
+/* Icons for cart and profile */
+.navbar-icon {
+    width: 22px;
+    height: 22px;
+    stroke: #000;
+    fill: none;
+}
+
+/* Optional: Add subtle hover effect to icons */
+.navbar-icon:hover {
+    stroke: #333;
+}
