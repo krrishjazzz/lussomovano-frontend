@@ -1,19 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../styles/collectionslist.css";
 
 const CollectionList = ({ collections }) => {
   return (
-    <div className="collections-grid">
+    <div className="banner-collections-container">
       {collections.map((collection) => (
-        <div key={collection.id} className="collection-item">
+        <div key={collection.id} className="banner-collection-item">
           <Link to={`/collection/${collection.name}`}>
-            <div className="collection-card">
+            <div className="banner-collection-card">
               <img
                 src={collection.imageUrl}
                 alt={collection.name}
-                className="collection-image"
+                className="banner-collection-image"
               />
-              <h3 className="collection-name">{collection.name}</h3>
+              <h3 className="banner-collection-name">{collection.name}</h3>
             </div>
           </Link>
         </div>

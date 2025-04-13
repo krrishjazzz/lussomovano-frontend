@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
-import "../styles/home.css";
+// import "../styles/home.css";
 
 export default function CategoryPage() {
   const { categoryName } = useParams();

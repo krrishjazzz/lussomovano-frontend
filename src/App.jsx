@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import CollectionPage from "./components/CollectionPage";
 import CategoryPage from "./components/CategoryPage";
 import SignIn from "./pages/SignInPage";
+import CartPage from "./pages/CartPage";
 // import Orders from "./pages/OrdersPage";
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
       <Route path="/collection/:name" element={<CollectionPage />} /> {/* ✅ */}
       <Route path="/category/:categoryName" element={<CategoryPage />} />
       <Route path="/auth/signin" element={<SignIn />} />
+      <Route path="/cart" element={<CartPage />} />
       {/* <Route path="/orders" element={<Orders />} /> */}
     </Routes>
   );

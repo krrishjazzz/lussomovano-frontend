@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../styles/profiledropdown.css";
+
+import "../styles/navbar.css";
 
 export default function Navbar() {
   const [categoryOpen, setCategoryOpen] = useState(false);
