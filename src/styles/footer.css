@@ -1,0 +1,88 @@
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 40px 20px;
+    font-family: "Cormorant Garamond", serif;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 30px;
+}
+
+.footer-logo {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #999;
+}
+
+.footer-newsletter {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-newsletter input {
+    padding: 10px;
+    border: none;
+    border-radius: 2px;
+    outline: none;
+    width: 200px;
+}
+
+.footer-newsletter button {
+    padding: 8px 14px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.footer-newsletter button:hover {
+    background-color: #ccc;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.footer-socials a {
+    color: #aaa;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: #fff;
+}

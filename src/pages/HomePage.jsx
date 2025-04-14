@@ -4,6 +4,7 @@ import axios from "axios";
 import jungleImg from "../assets/collections/jungledrop.jpeg";
 import wildImg from "../assets/collections/wildwithin.jpeg";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import CollectionList from "../components/CollectionList"; // ✅ Use correct component
 import { API } from "../config/api";
 
@@ -38,6 +39,7 @@ export default function HomePage() {
       <main className="homepage-main">
         <CollectionList collections={collections} />
       </main>
+      <Footer />
     </div>
   );
 }
