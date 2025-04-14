@@ -9,7 +9,8 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     // Check if the token is in localStorage
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("authToken");
+    console.log(localStorage);
     if (token) {
       setIsAuthenticated(true);
       fetchUserData(token);
@@ -18,30 +19,48 @@ const AuthProvider = ({ children }) => {
 
   const fetchUserData = async (token) => {
     try {
-      const response = await axios.get("/orders", {
+      const response = await axios.get("http://localhost:8080/api/user/me", {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token}`, // Ensure the token is passed here
         },
       });
-      setUser(response.data);
-    } catch (err) {
-      console.error(err);
+      setUser(response.data); // Set the user data
+    } catch (error) {
+      console.error("Error fetching user data:", error);
     }
   };
 
-  const login = async (username, password) => {
+  const login = async (email, password) => {
     try {
-      const response = await axios.post("/auth/login", { username, password });
-      localStorage.setItem("token", response.data.token);
-      setIsAuthenticated(true);
-      fetchUserData(response.data.token);
-    } catch (err) {
-      console.error(err);
+      const response = await axios.post(
+        "http://localhost:8080/api/auth/login",
+        {
+          email,
+          password,
+        }
+      );
+
+      console.log("Login Response:", response); // Log the entire response
+
+      // Assuming the backend sends the token directly in response.data
+      const token = response.data.token;
+      console.log("Received Token:", token); // Log the token to verify it's valid
+
+      if (token) {
+        // Save the token in localStorage
+        localStorage.setItem("authToken", token);
+        setIsAuthenticated(true);
+        fetchUserData(token); // Pass the token for fetching user data
+      } else {
+        console.error("Token not received correctly");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
     }
   };
 
   const logout = () => {
-    localStorage.removeItem("token");
+    localStorage.removeItem("authToken");
     setIsAuthenticated(false);
     setUser(null);
   };

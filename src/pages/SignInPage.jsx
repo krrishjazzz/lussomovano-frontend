@@ -17,7 +17,8 @@ export default function SignIn() {
           password,
         }
       );
-      localStorage.setItem("authToken", response.data.token);
+      console.log("inside sign in page")
+      localStorage.setItem("authToken", response.data);
       navigate("/");
     } catch (error) {
       console.error("Error logging in:", error);

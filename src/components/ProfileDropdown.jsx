@@ -5,6 +5,7 @@ import "../styles/profiledropdown.css";
 
 export default function ProfileDropdown() {
   const { isAuthenticated, logout } = useContext(AuthContext);
+  console.log("inside profile drop down jsx");
 
   return (
     <div className="profile-dropdown">

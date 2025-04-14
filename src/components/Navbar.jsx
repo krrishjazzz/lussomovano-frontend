@@ -16,11 +16,14 @@ export default function Navbar() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check if user is authenticated on page load (from localStorage or session)
+    // Check if the user is authenticated (if the token is available)
     const token = localStorage.getItem("authToken");
+    console.log("Token in useEffect:", token); // Check what's stored
     if (token) {
       setIsAuthenticated(true);
-      fetchUserData();
+      fetchUserData(token); // Fetch user data with the token
+    } else {
+      setIsAuthenticated(false);
     }
   }, []);
 
