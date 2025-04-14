@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "./Navbar";
 import "../styles/collectionspage.css";
+import Footer from "../components/Footer";
 
 import { API } from "../config/api";
 
@@ -121,6 +122,7 @@ export default function CollectionPage() {
           ))}
         </div>
       </main>
+      <Footer />
     </div>
   );
 }

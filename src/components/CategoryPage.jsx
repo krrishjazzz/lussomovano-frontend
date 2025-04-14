@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 // import "../styles/home.css";
 
 export default function CategoryPage() {
@@ -43,6 +44,7 @@ export default function CategoryPage() {
             ))}
         </div>
       </main>
+      <Footer />
     </div>
   );
 }

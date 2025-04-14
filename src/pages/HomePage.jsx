@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import jungleImg from "../assets/collections/jungledrop.jpeg";
-import wildImg from "../assets/collections/wildwithin.jpeg";
+import jungleImg from "../assets/collections/jungledrop.jpg";
+import wildImg from "../assets/collections/wildwithin.jpg";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import "../styles/home.css"
 import CollectionList from "../components/CollectionList"; // ✅ Use correct component
 import { API } from "../config/api";
 

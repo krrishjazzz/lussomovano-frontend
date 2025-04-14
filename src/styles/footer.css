@@ -1,88 +1,154 @@
 .footer {
     background-color: #000;
-    color: #fff;
-    padding: 40px 20px;
-    font-family: "Cormorant Garamond", serif;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+    padding: 4rem 2rem;
+    font-family: 'Didot', serif;
+    color: #f5f5f5;
 }
 
-.footer-top {
+.footer-columns {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
-    gap: 20px;
-    border-bottom: 1px solid #333;
-    padding-bottom: 30px;
+    gap: 3rem;
+    justify-content: space-between;
+    margin-bottom: 3rem;
 }
 
-.footer-logo {
-    font-size: 28px;
-    font-weight: 600;
-    letter-spacing: 2px;
+.footer-column {
+    flex: 1;
+    min-width: 220px;
+    max-width: 300px;
 }
 
-.footer-links {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.footer-column h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    color: #ffffff;
+    letter-spacing: 0.05em;
 }
 
-.footer-links a {
-    color: #fff;
-    text-decoration: none;
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+    color: #dcdcdc;
+    cursor: pointer;
     transition: color 0.3s ease;
 }
 
-.footer-links a:hover {
-    color: #999;
+.footer-column ul li:hover {
+    color: #ffffff;
 }
 
-.footer-newsletter {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.footer-column p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    color: #b0b0b0;
+    line-height: 1.5;
 }
 
-.footer-newsletter input {
-    padding: 10px;
-    border: none;
-    border-radius: 2px;
-    outline: none;
-    width: 200px;
+.newsletter input,
+.newsletter select {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 0.8rem;
+    background-color: transparent;
+    border: 1px solid #555;
+    color: #f5f5f5;
+    border-radius: 4px;
+    font-size: 0.95rem;
 }
 
-.footer-newsletter button {
-    padding: 8px 14px;
-    background-color: #fff;
+.newsletter input::placeholder {
+    color: #aaa;
+}
+
+.newsletter button {
+    padding: 0.6rem 1.2rem;
+    background-color: #f5f5f5;
     color: #000;
     border: none;
-    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-weight: bold;
+    transition: all 0.3s ease;
 }
 
-.footer-newsletter button:hover {
-    background-color: #ccc;
+.newsletter button:hover {
+    background-color: #d4d4d4;
+    color: #000;
 }
 
-.footer-bottom {
+.footer-services {
+    border-top: 1px solid #333;
+    padding-top: 2rem;
+    margin-top: 2rem;
+}
+
+.footer-services h5 {
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #ffffff;
+}
+
+.footer-services ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    gap: 2rem;
     flex-wrap: wrap;
-    font-size: 14px;
-    color: #aaa;
 }
 
-.footer-socials a {
-    color: #aaa;
-    text-decoration: none;
-    margin-left: 20px;
+.footer-services li {
+    font-size: 0.95rem;
+    color: #bbbbbb;
+    cursor: pointer;
     transition: color 0.3s ease;
 }
 
-.footer-socials a:hover {
-    color: #fff;
+.footer-services li:hover {
+    color: #ffffff;
+}
+
+.footer-brand {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.footer-brand h2 {
+    font-size: 7rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.footer-brand p {
+    font-size: 0.9rem;
+    color: #888888;
+}
+
+@media (max-width: 768px) {
+    .footer-columns {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .footer-services ul {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .newsletter input,
+    .newsletter select {
+        font-size: 1rem;
+    }
 }

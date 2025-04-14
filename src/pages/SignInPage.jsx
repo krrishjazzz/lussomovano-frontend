@@ -32,6 +32,7 @@ export default function SignInPage() {
         />
         <button type="submit">Sign In</button>
       </form>
+      <Footer />
     </div>
   );
 }
