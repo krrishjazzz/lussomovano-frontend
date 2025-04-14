@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import "../styles/cart.css";
 
 const CartPage = () => {
   const [cart, setCart] = useState([]);
   const token = localStorage.getItem("authToken");
 
-  // Get the userId from the JWT token if you have a way to extract it (e.g., from a decoded token)
-  const userId = 1; // This should be dynamically extracted from your token or user session
+  const userId = 1; // Replace with real user ID extraction later
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -20,15 +22,15 @@ const CartPage = () => {
   };
 
   const placeOrder = async () => {
-    const totalAmount = calculateTotalAmount(); // Calculate the total amount of the order
+    const totalAmount = calculateTotalAmount();
 
     const orderData = {
-      user: { id: userId }, // Add the user info
+      user: { id: userId },
       items: cart.map((item) => ({
-        product: { id: item.product.id }, // Include the productId
+        product: { id: item.product.id },
         quantity: item.quantity,
       })),
-      totalAmount: totalAmount, // Include the total amount
+      totalAmount,
     };
 
     try {
@@ -50,79 +52,46 @@ const CartPage = () => {
   };
 
   return (
-    <div>
-      <h2>Your Cart</h2>
-      {cart.map((item, i) => (
-        <div key={i}>
-          <h3>{item.product.name}</h3>
-          <p>Qty: {item.quantity}</p>
-          <p>Price: ₹{item.product.price * item.quantity}</p>
-        </div>
-      ))}
+    <div className="cart-page">
+      <Navbar hideCartIcon={true} /> {/* Optional prop to hide cart icon */}
+      <div className="cart-container">
+        <h2 className="cart-title">Your Shopping Bag</h2>
+        {cart.length === 0 ? (
+          <p className="empty-cart-msg">Your cart is empty.</p>
+        ) : (
+          <>
+            <div className="cart-items">
+              {cart.map((item, i) => (
+                <div className="cart-item" key={i}>
+                  <img
+                    src={item.product.imageUrl}
+                    alt={item.product.name}
+                    className="cart-item-image"
+                  />
+                  <div className="cart-item-details">
+                    <h3>{item.product.name}</h3>
+                    <p>Qty: {item.quantity}</p>
+                    <p>Price: ₹{item.product.price}</p>
+                    <p className="subtotal">
+                      Subtotal: ₹{item.product.price * item.quantity}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
 
-      <div>
-        <h3>Total: ₹{calculateTotalAmount()}</h3>
+            <div className="cart-summary">
+              <h3>Total: ₹{calculateTotalAmount()}</h3>
+              <button className="place-order-btn" onClick={placeOrder}>
+                Place Order
+              </button>
+            </div>
+          </>
+        )}
       </div>
-
-      {cart.length > 0 && <button onClick={placeOrder}>Place Order</button>}
+      <Footer />
     </div>
   );
 };
 
 export default CartPage;
-
-// import React, { useEffect, useState } from "react";
-// import axios from "axios";
-
-// const CartPage = () => {
-//   const [cart, setCart] = useState([]);
-//   const token = localStorage.getItem("token");
-
-//   useEffect(() => {
-//     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-//     setCart(storedCart);
-//   }, []);
-
-//   const placeOrder = async () => {
-//     const orderData = {
-//       items: cart.map((item) => ({
-//         product: { id: item.product.id },
-//         quantity: item.quantity,
-//       })),
-//     };
-
-//     try {
-//       const res = await axios.post(
-//         "http://localhost:8080/api/orders/place",
-//         orderData,
-//         {
-//           headers: { Authorization: `Bearer ${token}` },
-//         }
-//       );
-
-//       alert("Order placed successfully!");
-//       localStorage.removeItem("cart");
-//       setCart([]);
-//     } catch (err) {
-//       alert("Order failed.");
-//       console.error(err);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <h2>Your Cart</h2>
-//       {cart.map((item, i) => (
-//         <div key={i}>
-//           <h3>{item.product.name}</h3>
-//           <p>Qty: {item.quantity}</p>
-//           <p>Price: ₹{item.product.price * item.quantity}</p>
-//         </div>
-//       ))}
-
-//       {cart.length > 0 && <button onClick={placeOrder}>Place Order</button>}
-//     </div>
-//   );
-// };
-
-// export default CartPage;

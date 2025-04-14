@@ -29,7 +29,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        <Link to="/" className="navbar-brand">
+        <Link to="/home" className="navbar-brand">
           Lusso Movano
         </Link>
       </div>
@@ -42,7 +42,9 @@ export default function Navbar() {
         </div>
 
         {/* Cart */}
-        <Link to="/cart">🛒</Link>
+        <Link to="/cart" className="navbar-cart-icon">
+          🛒
+        </Link>
 
         {/* Profile */}
         <div className="profile-dropdown" ref={profileRef}>

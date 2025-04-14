@@ -87,3 +87,10 @@
         height: 220px;
     }
 }
+
+.flying-image {
+    pointer-events: none;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
