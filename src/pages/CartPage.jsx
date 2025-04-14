@@ -3,7 +3,7 @@ import axios from "axios";
 
 const CartPage = () => {
   const [cart, setCart] = useState([]);
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem("authToken");
 
   // Get the userId from the JWT token if you have a way to extract it (e.g., from a decoded token)
   const userId = 1; // This should be dynamically extracted from your token or user session

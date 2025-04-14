@@ -43,7 +43,7 @@ const AuthProvider = ({ children }) => {
       console.log("Login Response:", response); // Log the entire response
 
       // Assuming the backend sends the token directly in response.data
-      const token = response.data.token;
+      const token = response.data;
       console.log("Received Token:", token); // Log the token to verify it's valid
 
       if (token) {

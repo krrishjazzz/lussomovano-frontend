@@ -1,28 +1,17 @@
-import { useState } from "react";
-import axios from "axios";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
-export default function SignIn() {
+export default function SignInPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post(
-        "http://localhost:8080/api/auth/login",
-        {
-          email,
-          password,
-        }
-      );
-      console.log("inside sign in page")
-      localStorage.setItem("authToken", response.data);
-      navigate("/");
-    } catch (error) {
-      console.error("Error logging in:", error);
-    }
+    await login(email, password);
+    navigate("/home");
   };
 
   return (
