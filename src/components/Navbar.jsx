@@ -2,6 +2,7 @@ import { useContext, useRef, useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { ShoppingBag, User, Search, Menu } from "lucide-react";
+import ProfileDropdown from "./ProfileDropdown";
 import "../styles/navbar.css";
 
 export default function Navbar() {
@@ -46,7 +47,8 @@ export default function Navbar() {
         </button>
 
         {/* Profile */}
-        <div className="profile-dropdown" ref={profileRef}>
+        <ProfileDropdown />
+        {/* <div className="profile-dropdown" ref={profileRef}>
           <button
             onClick={() => setShowProfile(!showProfile)}
             className="icon-button"
@@ -71,7 +73,7 @@ export default function Navbar() {
               )}
             </div>
           )}
-        </div>
+        </div> */}
 
         {/* Search */}
         <div className="search-dropdown" ref={searchRef}>
