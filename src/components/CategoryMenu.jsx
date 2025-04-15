@@ -15,8 +15,7 @@ export default function CategoryMenu() {
         <Menu className="navbar-icon" />
       </button>
       {categoryOpen && (
-        <ul className="category-dropdown-menu fade-in">
-          <li className="dropdown-title">Shop by Category</li>
+        <ul className="category-dropdown-menu slide-in">
           <li>
             <Link to="/category/Tshirt" className="dropdown-item">
               T-Shirts
@@ -30,6 +29,16 @@ export default function CategoryMenu() {
           <li>
             <Link to="/category/pants" className="dropdown-item">
               Pants
+            </Link>
+          </li>
+          <li>
+            <Link to="/category/accessories" className="dropdown-item">
+              Accessories
+            </Link>
+          </li>
+          <li>
+            <Link to="/category/shoes" className="dropdown-item">
+              Shoes
             </Link>
           </li>
         </ul>
