@@ -2,71 +2,115 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 2rem;
+    padding: 1.2rem 2rem;
     font-size: 1rem;
-    border-bottom: 1px solid #e5e5e5;
-    background-color: #fff;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: all 0.5s ease;
+}
+
+.navbar-pop {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .navbar-left {
+    flex: 1;
+}
+
+.navbar-brand-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.no-style-link {
+    text-decoration: none;
+    color: inherit;
+}
+.navbar-brand {
     font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
     font-family: 'Didot', serif;
+    font-weight: bold;
+    letter-spacing: 2px;
     color: #000;
+    cursor: default;
 }
 
 .navbar-right {
+    flex: 1;
     display: flex;
-    gap: 1.8rem;
+    justify-content: flex-end;
     align-items: center;
-    font-size: 1rem;
+    gap: 1.5rem;
 }
 
-.navbar-right a {
-    color: #000;
-    text-decoration: none;
-    transition: opacity 0.3s ease, transform 0.2s ease;
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.3rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
 }
 
-.navbar-right a:hover {
-    opacity: 0.6;
-    transform: scale(1.05);
-}
-
-/* Icons for cart and profile */
 .navbar-icon {
+    stroke: #000;
     width: 22px;
     height: 22px;
-    stroke: #000;
-    fill: none;
+    transition: stroke 0.3s ease;
 }
 
-/* Optional: Add subtle hover effect to icons */
 .navbar-icon:hover {
-    stroke: #333;
+    stroke: #444;
 }
 
-.navbar-brand {
-    color: #000 !important;
-    text-decoration: none !important;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+.search-dropdown,
+.profile-dropdown,
+.category-dropdown {
+    position: relative;
+}
+
+.search-input {
+    position: absolute;
+    top: 2.5rem;
+    right: 0;
+    width: 200px;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    background-color: white;
+    z-index: 10;
+    font-size: 0.9rem;
     font-family: 'Didot', serif;
-    cursor: pointer;
 }
 
-.navbar-brand:hover {
-    opacity: 0.8;
+.profile-dropdown-menu,
+.dropdown-menu {
+    position: absolute;
+    top: 2.5rem;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    z-index: 20;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    min-width: 150px;
 }
 
+.dropdown-item {
+    display: block;
+    margin-bottom: 0.6rem;
+    color: #111;
+    text-decoration: none;
+}
+
+.dropdown-item:hover {
+    opacity: 0.7;
+}

@@ -2,15 +2,14 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "./Navbar";
-import "../styles/collectionspage.css";
 import Footer from "../components/Footer";
-
+import "../styles/collectionspage.css";
 import { API } from "../config/api";
 
 export default function CollectionPage() {
-  const { name } = useParams(); // collection name from URL
+  const { name } = useParams();
   const [products, setProducts] = useState([]);
-  const [quantities, setQuantities] = useState({}); // quantity for each product
+  const [quantities, setQuantities] = useState({});
 
   useEffect(() => {
     fetchProductsByCollection();
@@ -44,7 +43,7 @@ export default function CollectionPage() {
 
     localStorage.setItem("cart", JSON.stringify(cart));
 
-    // === FLIGHT ANIMATION START ===
+    // Flight animation
     const productCard = e.currentTarget.closest(".collection-card");
     const image = productCard.querySelector(".collection-image");
     const cartIcon = document.querySelector(".navbar-cart-icon");
@@ -55,7 +54,6 @@ export default function CollectionPage() {
 
       const flyingImage = image.cloneNode(true);
       flyingImage.classList.add("flying-image");
-
       flyingImage.style.position = "fixed";
       flyingImage.style.top = `${imageRect.top}px`;
       flyingImage.style.left = `${imageRect.left}px`;
@@ -66,7 +64,6 @@ export default function CollectionPage() {
         "all 0.8s cubic-bezier(0.65, -0.1, 0.3, 1.5)";
 
       document.body.appendChild(flyingImage);
-
       requestAnimationFrame(() => {
         flyingImage.style.top = `${cartRect.top}px`;
         flyingImage.style.left = `${cartRect.left}px`;
@@ -80,7 +77,6 @@ export default function CollectionPage() {
       }, 900);
     }
   };
-
 
   return (
     <div className="homepage">
@@ -96,27 +92,25 @@ export default function CollectionPage() {
                   alt={product.name}
                   className="collection-image"
                 />
-                <h3 className="collection-name">{product.name}</h3>
-                <p>₹{product.price}</p>
-
-                {/* Quantity selector */}
-                <input
-                  type="number"
-                  min="1"
-                  value={quantities[product.id] || 1}
-                  onChange={(e) =>
-                    handleQuantityChange(product.id, e.target.value)
-                  }
-                  className="quantity-input"
-                />
-
-                {/* Add to Cart button */}
-                <button
-                  onClick={(e) => addToCart(product, e)}
-                  className="add-to-cart-btn"
-                >
-                  Add to Cart
-                </button>
+                <div className="collection-details">
+                  <h3 className="collection-name">{product.name}</h3>
+                  <p className="collection-price">₹{product.price}</p>
+                  <input
+                    type="number"
+                    min="1"
+                    value={quantities[product.id] || 1}
+                    onChange={(e) =>
+                      handleQuantityChange(product.id, e.target.value)
+                    }
+                    className="quantity-input"
+                  />
+                  <button
+                    onClick={(e) => addToCart(product, e)}
+                    className="add-to-cart-btn"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
               </div>
             </div>
           ))}

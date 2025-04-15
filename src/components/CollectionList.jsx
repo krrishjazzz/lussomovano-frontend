@@ -7,16 +7,22 @@ const CollectionList = ({ collections }) => {
     <div className="banner-collections-container">
       {collections.map((collection) => (
         <div key={collection.id} className="banner-collection-item">
-          <Link to={`/collection/${collection.name}`}>
-            <div className="banner-collection-card">
-              <img
-                src={collection.imageUrl}
-                alt={collection.name}
-                className="banner-collection-image"
-              />
+          <div className="banner-collection-card">
+            <img
+              src={collection.imageUrl}
+              alt={collection.name}
+              className="banner-collection-image"
+            />
+            <div className="collection-overlay">
               <h3 className="banner-collection-name">{collection.name}</h3>
+              <Link
+                to={`/collection/${collection.name}`}
+                className="shop-button"
+              >
+                Shop Collection
+              </Link>
             </div>
-          </Link>
+          </div>
         </div>
       ))}
     </div>
