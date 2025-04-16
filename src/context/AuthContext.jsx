@@ -8,9 +8,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Check if the token is in localStorage
     const token = localStorage.getItem("authToken");
-    console.log(localStorage);
     if (token) {
       setIsAuthenticated(true);
       fetchUserData(token);
@@ -21,10 +19,10 @@ const AuthProvider = ({ children }) => {
     try {
       const response = await axios.get("http://localhost:8080/api/user/me", {
         headers: {
-          Authorization: `Bearer ${token}`, // Ensure the token is passed here
+          Authorization: `Bearer ${token}`,
         },
       });
-      setUser(response.data); // Set the user data
+      setUser(response.data);
     } catch (error) {
       console.error("Error fetching user data:", error);
     }
@@ -40,17 +38,11 @@ const AuthProvider = ({ children }) => {
         }
       );
 
-      console.log("Login Response:", response); // Log the entire response
-
-      // Assuming the backend sends the token directly in response.data
       const token = response.data;
-      console.log("Received Token:", token); // Log the token to verify it's valid
-
       if (token) {
-        // Save the token in localStorage
         localStorage.setItem("authToken", token);
         setIsAuthenticated(true);
-        fetchUserData(token); // Pass the token for fetching user data
+        fetchUserData(token);
       } else {
         console.error("Token not received correctly");
       }
@@ -66,7 +58,9 @@ const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, user, login, logout }}>
+    <AuthContext.Provider
+      value={{ isAuthenticated, user, login, logout, fetchUserData }}
+    >
       {children}
     </AuthContext.Provider>
   );

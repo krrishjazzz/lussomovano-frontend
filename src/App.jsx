@@ -1,4 +1,3 @@
-// ✅ File: App.jsx
 import { Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import HomePage from "./pages/HomePage";
@@ -8,23 +7,18 @@ import SignInPage from "./pages/SignInPage";
 import CartPage from "./pages/CartPage";
 import OrderPage from "./pages/OrdersPage";
 import { AuthProvider } from "./context/AuthContext";
-// import Orders from "./pages/OrdersPage";
 
 export default function App() {
-  console.log("⚙️ App component rendered");
-
   return (
     <AuthProvider>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/home" element={<HomePage />} />
-        <Route path="/collection/:name" element={<CollectionPage />} />{" "}
-        {/* ✅ */}
+        <Route path="/collection/:name" element={<CollectionPage />} />
         <Route path="/category/:categoryName" element={<CategoryPage />} />
         <Route path="/auth/signin" element={<SignInPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/orders" element={<OrderPage />} />
-        {/* <Route path="/orders" element={<Orders />} /> */}
       </Routes>
     </AuthProvider>
   );
